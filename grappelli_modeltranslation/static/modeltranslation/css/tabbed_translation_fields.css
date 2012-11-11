@@ -1,0 +1,14 @@
+.modeltranslation-switcher-container {
+    background: none;
+    border-radius: none;
+    border: 0;
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #DDDDDD;
+    width: 100%;
+    float: left;
+}
+.modeltranslation-switcher {
+    background: none;
+    border: 0;
+    border-radius: none;
+}
