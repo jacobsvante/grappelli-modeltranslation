@@ -1,11 +1,14 @@
 (function ($) {
     $(function() {
         $.modeltranslation = (function() {
-            var mt = {};
-            mt.languages = [];
+            var mt = {
+                languages: []
+            };
+
             mt.options = {
-                    fieldTypes: 'input[type=text], input[type=file], textarea'
-                };
+                fieldTypes: 'input[type=text], input[type=file], textarea',
+                className: $('#grp-content-container').children('.mt').length ? '.mt' : '.modeltranslation'
+            };
 
             mt.init = function(opts) {
                 var self = this,
@@ -30,7 +33,7 @@
                     // self._createMainSwitch(tabs, fields);
 
                     // Adding new inlines, rebinding events
-                    $('.grp-add-handler').bind('click.mt', function(){
+                    $('.grp-add-handler').bind('click' + mt.options.className, function(){
                         group = $(self).parents('.group');
                         window.setTimeout(function(){
                             self._createInlineTabs(group.find('.grp-items > .grp-module:last').prev());
@@ -70,7 +73,7 @@
                 $.each(this.options.languages, function(i, lang) {
                     $('<li class="required ui-state-default ui-corner-top"><a></a></li>')
                         .css({float: 'left'}).appendTo(tabs)
-                        .find('a').bind('click.mt', function(){
+                        .find('a').bind('click' + mt.options.className, function(){
                             var l = $(this).attr('href').replace('#', '');
                             $('.translated-field:not(.translation-'+ l +')').hide();
                             $('.translation-'+ l).show();
@@ -94,7 +97,7 @@
                     });
 
                     // Tweak rows
-                    var fields = $('.mt')
+                    var fields = $(mt.options.className)
                         .filter(this.options.fieldTypes).each(function(i, f){
                             var field = $(f);
                             $(f).parent().addClass('translated-field translation-'+ $(f).attr('id').slice(-2));
@@ -255,10 +258,10 @@
                     out = {},
                     langs = [];
                 if ($parent) {
-                    fields = $($parent).find('.mt').filter(this.options.fieldTypes);
+                    fields = $($parent).find(mt.options.className).filter(this.options.fieldTypes);
                 }
                 else {
-                    fields = $('.mt').filter(this.options.fieldTypes);
+                    fields = $(mt.options.className).filter(this.options.fieldTypes);
                 }
                 //onAfterAdded
 
@@ -282,8 +285,10 @@
                 this.options.languages = $.unique(langs.sort());
                 return out;
             };
+
             return mt;
         }());
+
         $.modeltranslation.init();
     });
 }(window.grp.jQuery));
