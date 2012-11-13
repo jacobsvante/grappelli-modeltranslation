@@ -1,4 +1,4 @@
-.modeltranslation-switcher-container {
+.mt-switcher-container {
     background: none;
     border-radius: none;
     border: 0;
@@ -7,7 +7,7 @@
     width: 100%;
     float: left;
 }
-.modeltranslation-switcher {
+.mt-switcher {
     background: none;
     border: 0;
     border-radius: none;
