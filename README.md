@@ -33,6 +33,12 @@ Install using `pip`...
 
 # Changelog
 
+## 0.1.1
+
+**Date**: Nov 13, 2012
+
+* Support both the new ("mt") and old ("modeltranslation") html class names
+
 ## 0.1.0
 
 **Date**: Nov 11, 2012
