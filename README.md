@@ -26,6 +26,21 @@ Install using `pip`...
     git clone git@github.com:jmagnusson/grappelli-modeltranslation.git
     pip install -r requirements.txt
 
+Add package to `INSTALLED_APPS`:
+
+    INSTALLED_APPS = (
+        'grappelli',
+        'grappelli_modeltranslation',
+        ...
+        'modeltranslation',
+    )
+
+NOTE: `grappelli_modeltranslation` must come before `modeltranslation` for tabbed translation fields to work
+
+Copy the static files to your project:
+
+    python manage.py collectstatic
+
 
 # Documentation
 
