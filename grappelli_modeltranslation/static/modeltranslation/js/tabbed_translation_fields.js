@@ -30,7 +30,7 @@
                     // self._createMainSwitch(tabs, fields);
 
                     // Adding new inlines, rebinding events
-                    $('.grp-add-handler').bind('click.modeltranslation', function(){
+                    $('.grp-add-handler').bind('click.mt', function(){
                         group = $(self).parents('.group');
                         window.setTimeout(function(){
                             self._createInlineTabs(group.find('.grp-items > .grp-module:last').prev());
@@ -63,14 +63,14 @@
             mt._createChangelistTabs = function() {
                 var translations = this._getTranslatedFields(),
                     tabs = [],
-                    container = $('<div class="modeltranslation-switcher-container ui-tabs ui-widget ui-widget-content ui-corner-all"></div>').css('margin-bottom', 6);
+                    container = $('<div class="mt-switcher-container ui-tabs ui-widget ui-widget-content ui-corner-all"></div>').css('margin-bottom', 6);
 
-                tabs = $('<ul class="modeltranslation-switcher ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"></ul>').appendTo(container);
+                tabs = $('<ul class="mt-switcher ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"></ul>').appendTo(container);
 
                 $.each(this.options.languages, function(i, lang) {
                     $('<li class="required ui-state-default ui-corner-top"><a></a></li>')
                         .css({float: 'left'}).appendTo(tabs)
-                        .find('a').bind('click.modeltranslation', function(){
+                        .find('a').bind('click.mt', function(){
                             var l = $(this).attr('href').replace('#', '');
                             $('.translated-field:not(.translation-'+ l +')').hide();
                             $('.translation-'+ l).show();
@@ -94,7 +94,7 @@
                     });
 
                     // Tweak rows
-                    var fields = $('.modeltranslation')
+                    var fields = $('.mt')
                         .filter(this.options.fieldTypes).each(function(i, f){
                             var field = $(f);
                             $(f).parent().addClass('translated-field translation-'+ $(f).attr('id').slice(-2));
@@ -124,8 +124,8 @@
                     container = $('.group.tabular');
                 }
                 if (container.length) {
-                    tabs_container = $('<div class="modeltranslation-switcher-container"></div>');
-                    tabs_list = $('<ul class="modeltranslation-switcher"></ul>').appendTo(tabs_container);
+                    tabs_container = $('<div class="mt-switcher-container"></div>');
+                    tabs_list = $('<ul class="mt-switcher"></ul>').appendTo(tabs_container);
                     // can't use real tabs, so we fake them
                     var tabs_shim = $('<div style="display:none;" />').appendTo(tabs_container);
 
@@ -199,8 +199,8 @@
                 var tabs = [],
                     translations = this._getTranslatedFields($parent);
                 $.each(translations, function (name, languages) {
-                    var tabs_container = $('<div class="modeltranslation-switcher-container"></div>'),
-                      tabs_list = $('<ul class="modeltranslation-switcher"></ul>'),
+                    var tabs_container = $('<div class="mt-switcher-container"></div>'),
+                      tabs_list = $('<ul class="mt-switcher"></ul>'),
                       insertion_point;
                     tabs_container.append(tabs_list);
                     $.each(languages, function (lang, el) {
@@ -255,10 +255,10 @@
                     out = {},
                     langs = [];
                 if ($parent) {
-                    fields = $($parent).find('.modeltranslation').filter(this.options.fieldTypes);
+                    fields = $($parent).find('.mt').filter(this.options.fieldTypes);
                 }
                 else {
-                    fields = $('.modeltranslation').filter(this.options.fieldTypes);
+                    fields = $('.mt').filter(this.options.fieldTypes);
                 }
                 //onAfterAdded
 
