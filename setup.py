@@ -26,7 +26,7 @@ setup(
     license='New BSD License',
     platforms=['any'],
     packages=[appname],
-    package_data={appname: ['static/modeltranslation/*/*']},
+    package_data={appname: ['static/{0}/*/*'.format(appname)]},
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',

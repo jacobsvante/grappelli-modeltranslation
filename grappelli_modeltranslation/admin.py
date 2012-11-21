@@ -10,7 +10,9 @@ from modeltranslation.admin import (
 
 
 def get_media_file_path(rel_path):
-    return os.path.join(settings.STATIC_URL, 'modeltranslation', rel_path)
+    return os.path.join(settings.STATIC_URL,
+                        'grappelli_modeltranslation',
+                        rel_path)
 
 
 MODEL_TRANSLATION_JS = (get_media_file_path(

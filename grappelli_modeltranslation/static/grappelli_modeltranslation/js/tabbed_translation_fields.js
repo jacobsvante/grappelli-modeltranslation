@@ -7,7 +7,7 @@
 
             mt.options = {
                 fieldTypes: 'input[type=text], input[type=file], textarea',
-                className: $('#grp-content-container').children('.mt').length ? '.mt' : '.modeltranslation'
+                className: $('#grp-content-container').find('.mt').length ? '.mt' : '.modeltranslation'
             };
 
             mt.init = function(opts) {
