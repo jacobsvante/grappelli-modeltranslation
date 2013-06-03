@@ -1,4 +1,5 @@
 # grappelli-modeltranslation
+[![PyPI version](https://pypip.in/v/grappelli-modeltranslation/badge.png)](https://pypi.python.org/pypi/grappelli-modeltranslation)
 
 **A small compatibility layer between django-grappelli and django-modeltranslation.**
 
