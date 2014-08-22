@@ -34,7 +34,7 @@
 
                     // Adding new inlines, rebinding events
                     $('.grp-add-handler').bind('click' + mt.options.className, function(){
-                        group = $(self).parents('.group');
+                        group = $(this).parents('.grp-group');
                         window.setTimeout(function(){
                             self._createInlineTabs(group.find('.grp-items > .grp-module:last').prev());
                         }, 200);
