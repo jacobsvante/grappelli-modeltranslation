@@ -91,7 +91,7 @@ THE SOFTWARE.
 [grappellifit] for the initial idea
 
 
-[twitter]: https://twitter.com/pyjacob
+[twitter]: https://twitter.com/jacobsvante_
 [docs]: https://github.com/jmagnusson/grappelli-modeltranslation
 [django-modeltranslation]: https://github.com/deschler/django-modeltranslation
 [django-grappelli]: https://github.com/sehmaschine/django-grappelli
