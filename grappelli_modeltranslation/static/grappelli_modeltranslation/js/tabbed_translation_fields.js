@@ -228,6 +228,12 @@
                             container.find('script').remove();
                             panel = $('<div id="' + id + '"></div>').append(container);
                             tab = $('<li' + (label.hasClass('required') ? ' class="required"' : '') + '><a href="#' + id + '">' + lang + '</a></li>');
+                            tab.bind('click', function() {
+                                var val = tabs_container.tabs('option', 'active');
+                                $(tabs).each(function(i, tab) {
+                                    tab.tabs('option', 'active', val);
+                                });
+                            });
                             tabs_list.append(tab);
                             tabs_container.append(panel);
                         }
