@@ -217,7 +217,12 @@
                             // Remove language and brackets from field label, they are
                             // displayed in the tab already.
                             if (field_label.html()) {
-                                field_label.html(field_label.html().replace(/\ \[.+\]/, ''));
+                                const _lang_text = '[' + lang + ']';
+                                field_label.each(function(){
+                                  let $this = $(this);
+                                  let _label = $this.html();
+                                  if (_label.includes(_lang_text)) $this.html(_label.replace(_lang_text, '').trim());
+                                })
                             }
                             if (!insertion_point) {
                                 insertion_point = {
